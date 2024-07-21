@@ -1,10 +1,10 @@
-# Polkadot_hackathon
-
 # Polkadot Transaction Analysis Tool
+
+## AI-Powered
 
 ## Overview
 
-This application is designed to analyze transactions on the Polkadot network, helping to identify suspicious activities and potential outliers. It was developed as part of the Polkadot x EasyA London Hackathon.
+This application is designed to analyze transactions on the Polkadot network, helping to identify suspicious activities and potential outliers using machine learning and AI. It was developed as part of the Polkadot x EasyA London Hackathon.
 
 [Click here to try the app](https://polkadot-app2-715cfeb3743d.herokuapp.com/)
 
