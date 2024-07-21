@@ -6,6 +6,8 @@
 
 This application is designed to analyze transactions on the Polkadot network, helping to identify suspicious activities and potential outliers. It was developed as part of the Polkadot x EasyA London Hackathon.
 
+[Click here to try the app](https://polkadot-app2-715cfeb3743d.herokuapp.com/)
+
 ## Features
 
 - **Customizable Data Processing**: Users can choose the frequency and volume of data to process.
