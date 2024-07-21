@@ -48,8 +48,8 @@ mixer_contracts = pd.read_csv('mixer_contracts.csv')
 # Integrate all components into a single layout
 app.layout = html.Div([
     html.H1("Polkadot Transaction Monitoring Dashboard", style={'textAlign': 'center'}),
-    html.H4("Powered by AI", style={'textAlign': 'center'}),
-    html.H5("This application is designed to analyze transactions on the Polkadot blockchain network, helping to identify suspicious activities and potential outliers using machine learning and AI. It was developed as part of the Polkadot x EasyA London Hackathon.", style={'textAlign': 'center', 'font-style': 'italic'}),
+    html.H3("Powered by AI", style={'textAlign': 'center'}),
+    html.H4("This application is designed to analyze transactions on the Polkadot blockchain network, helping to identify suspicious activities and potential outliers using machine learning and AI. It was developed as part of the Polkadot x EasyA London Hackathon.", style={'textAlign': 'center', 'font-style': 'italic'}),
     html.H2("Settings", style={'textAlign': 'left'}),
     html.Label("Select Refresh Interval:", style={'textAlign': 'center'}),
     dcc.RadioItems(
@@ -80,7 +80,7 @@ app.layout = html.Div([
     ),
     
     html.H2("Suspicious Transactions Graph", style={'textAlign': 'center'}),
-    html.H5("Users specify data parameters, after which the system calculates average transaction values and applies an Isolation Forest algorithm to detect outliers. The results are visualized on a graph, with highly suspicious activities marked as X in red.", style={'textAlign': 'center', 'font-style': 'italic'}),
+    html.H4("Users specify data parameters, after which the system calculates average transaction values and applies an Isolation Forest algorithm to detect outliers. The results are visualized on a graph, with highly suspicious activities marked as X in red.", style={'textAlign': 'center', 'font-style': 'italic'}),
     dcc.Dropdown(
         id='anomaly-filter',
         options=[
@@ -99,7 +99,7 @@ app.layout = html.Div([
     html.Div(id='sanction-notification', style={'textAlign': 'center'}),
 
     html.H2("Anomalies Table", style={'textAlign': 'center'}),
-    html.H5("Outliers are further checked against a list of blacklisted accounts.", style={'textAlign': 'center', 'font-style': 'italic'}),
+    html.H4("Outliers are further checked against a list of blacklisted accounts.", style={'textAlign': 'center', 'font-style': 'italic'}),
     dash_table.DataTable(
         id='anomaly-table',
         columns=[
@@ -110,8 +110,8 @@ app.layout = html.Div([
     ),
     
     html.H2("Crypto Transactions Bubble Map", style={'textAlign': 'center'}),
-    html.H5("All outliers are displayed on 2D and 3D graphs for pattern analysis and users can hover over graph elements to view more transaction details.", style={'textAlign': 'center', 'font-style': 'italic'}),
-    html.H5("Outliers are highlighted in red", style={'textAlign': 'center', 'font-style': 'italic'}),
+    html.H4("All outliers are displayed on 2D and 3D graphs for pattern analysis and users can hover over graph elements to view more transaction details.", style={'textAlign': 'center', 'font-style': 'italic'}),
+    html.H4("Outliers are highlighted in red", style={'textAlign': 'center', 'font-style': 'italic'}),
     dcc.RadioItems(
         id='view-selector',
         options=[
