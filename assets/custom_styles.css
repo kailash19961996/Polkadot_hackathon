@@ -1,10 +1,3 @@
-.body, .content {
-    background-image: url('/assets/image.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
 body {
     background-image: url('/assets/image.jpg');
     background-size: cover;
@@ -14,7 +7,6 @@ body {
     padding: 0;
     height: 100%;;  /* Optional: Prevents scrolling */
 }
-
 
 #react-entry-point {
     height: 100%;
@@ -46,4 +38,3 @@ button, .Radio, .Slider {
 .Graph {
     margin: auto;
 }
-
