@@ -1,0 +1,49 @@
+.body, .content {
+    background-image: url('/assets/image.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+html, body {
+    background-image: url('/assets/image.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100%;;  /* Optional: Prevents scrolling */
+}
+
+
+#react-entry-point {
+    height: 100%;
+}
+
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+label, .Select-control, .Select-menu-outer {
+    width: 100%;
+    margin: auto;
+}
+
+button, .Radio, .Slider {
+    display: block;
+    margin: auto;
+}
+
+.DataTable {
+    margin: auto;
+}
+
+.Graph {
+    margin: auto;
+}
+
