@@ -23,6 +23,24 @@ MODERN_THEME = "https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/quartz/bootstrap.m
 # Initialize the Dash app
 app = dash.Dash(__name__, external_stylesheets=[MODERN_THEME])
 
+linkedin = "https://raw.githubusercontent.com/kailash19961996/icons-and-images/main/linkedin.gif"
+github =   "https://raw.githubusercontent.com/kailash19961996/icons-and-images/main/gitcolor.gif"
+youtube =  "https://raw.githubusercontent.com/kailash19961996/icons-and-images/main/371907120_YOUTUBE_ICON_TRANSPARENT_1080.gif"
+email =    "https://raw.githubusercontent.com/kailash19961996/icons-and-images/main/emails33.gif"
+website =  "https://raw.githubusercontent.com/kailash19961996/icons-and-images/main/www.gif"
+
+footer = html.Div([
+    html.Hr(),  # Add a horizontal line above the footer
+    html.P(['Built by ', html.A('Kai', href='https://kailashsubramaniyam.com/', target='_blank'),'. Like this? ', html.A('Hire me!', href='https://kailashsubramaniyam.com/contact', target='_blank')], style={'text-align': 'center', 'margin': '20px 0'}),
+    html.Div([
+        html.A(html.Img(src=website, style={'width': '42px', 'height': '42px', 'margin-right': '25px'}), href='https://kailashsubramaniyam.com/', target='_blank'),
+        html.A(html.Img(src=youtube, style={'width': '28px', 'height': '28px', 'margin-right': '25px'}), href='https://www.youtube.com/@kailashbalasubramaniyam2449/videos', target='_blank'),
+        html.A(html.Img(src=linkedin, style={'width': '35px', 'height': '35px', 'margin-right': '25px'}), href='https://www.linkedin.com/in/kailash-kumar-balasubramaniyam-62b075184', target='_blank'),
+        html.A(html.Img(src=github, style={'width': '30px', 'height': '30px', 'margin-right': '25px'}), href='https://github.com/kailash19961996', target='_blank'),
+        html.A(html.Img(src=email, style={'width': '31px', 'height': '31px', 'margin-right': '25px'}), href='mailto:kailash.balasubramaniyam@gmail.com'),
+    ], style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'margin-bottom': '20px'})
+], style={'margin-top': '50px', 'text-align': 'center'})
+
 # Load sanctioned addresses and mixer contracts data
 sanctioned_addresses = pd.read_csv('sanctioned_addresses.csv')
 mixer_contracts = pd.read_csv('mixer_contracts.csv')
@@ -30,8 +48,9 @@ mixer_contracts = pd.read_csv('mixer_contracts.csv')
 # Integrate all components into a single layout
 app.layout = html.Div([
     html.H1("Polkadot Transaction Monitoring Dashboard", style={'textAlign': 'center'}),
-    
-    html.H2("Settings", style={'textAlign': 'center'}),
+    html.H4("Powered by AI", style={'textAlign': 'center'}),
+    html.H5("This application is designed to analyze transactions on the Polkadot blockchain network, helping to identify suspicious activities and potential outliers using machine learning and AI. It was developed as part of the Polkadot x EasyA London Hackathon.", style={'textAlign': 'center', 'font-style': 'italic'}),
+    html.H2("Settings", style={'textAlign': 'left'}),
     html.Label("Select Refresh Interval:", style={'textAlign': 'center'}),
     dcc.RadioItems(
         id='refresh-interval',
@@ -50,7 +69,7 @@ app.layout = html.Div([
         min=50,
         max=100,
         step=10,
-        value=50,
+        value=75,
         marks={i: str(i) for i in range(50, 101, 5)}
     ),
     html.Button(id='submit-button', n_clicks=0, children='Submit', style={'textAlign': 'center'}),
@@ -61,6 +80,7 @@ app.layout = html.Div([
     ),
     
     html.H2("Suspicious Transactions Graph", style={'textAlign': 'center'}),
+    html.H5("Users specify data parameters, after which the system calculates average transaction values and applies an Isolation Forest algorithm to detect outliers. The results are visualized on a graph, with highly suspicious activities marked as X in red.", style={'textAlign': 'center', 'font-style': 'italic'}),
     dcc.Dropdown(
         id='anomaly-filter',
         options=[
@@ -71,10 +91,15 @@ app.layout = html.Div([
         ],
         value='All'
     ),
-    dcc.Graph(id='transaction-graph', style={'textAlign': 'center'}),
+    dcc.Graph(id='transaction-graph', figure={'layout': {
+        'paper_bgcolor': 'rgba(0,0,0,0)',
+        'plot_bgcolor': 'rgba(0,0,0,0)',
+        'xaxis': {'visible': True},
+        'yaxis': {'visible': True},}},style={'textAlign': 'center'}),
     html.Div(id='sanction-notification', style={'textAlign': 'center'}),
-    
+
     html.H2("Anomalies Table", style={'textAlign': 'center'}),
+    html.H5("Outliers are further checked against a list of blacklisted accounts.", style={'textAlign': 'center', 'font-style': 'italic'}),
     dash_table.DataTable(
         id='anomaly-table',
         columns=[
@@ -85,17 +110,30 @@ app.layout = html.Div([
     ),
     
     html.H2("Crypto Transactions Bubble Map", style={'textAlign': 'center'}),
+    html.H5("All outliers are displayed on 2D and 3D graphs for pattern analysis and users can hover over graph elements to view more transaction details.", style={'textAlign': 'center', 'font-style': 'italic'}),
+    html.H5("Outliers are highlighted in red", style={'textAlign': 'center', 'font-style': 'italic'}),
     dcc.RadioItems(
         id='view-selector',
         options=[
             {'label': '2D View', 'value': '2D'},
             {'label': '3D View', 'value': '3D'}
         ],
-        value='2D',
+        value='3D',
         labelStyle={'display': 'inline-block'},
         style={'textAlign': 'center'}
     ),
-    dcc.Graph(id='bubble-graph')
+    dcc.Graph(id='bubble-graph', figure={'layout': {
+        'paper_bgcolor': 'rgba(0,0,0,0)',
+        'plot_bgcolor': '#b8b8b8',
+        'xaxis': {'visible': True},
+        'yaxis': {'visible': True},
+        'scene': {
+            'xaxis': {'visible': False},
+            'yaxis': {'visible': False},
+            'zaxis': {'visible': False},
+            'bgcolor': 'rgba(0,0,0,0)',
+        }}}),
+    footer
 ])
 
 @app.callback(
@@ -249,11 +287,17 @@ def update_transaction_graph(selected_filter, n_clicks, num_transactions):
                      color_discrete_map=color_map,
                      title='Polkadot Transactions', 
                      hover_data=['from', 'to', 'total_sent', 'total_received'])
+
+    fig.update_layout(plot_bgcolor='#B8C9BC',  # Light gray background
+                    paper_bgcolor='rgba(0,0,0,0)',   # Transparent paper background
+                    font=dict(color='#7f7f7f'),      # Gray font color
+                    title=dict(font=dict(size=24, color='#515151')),  # Darker title
+                    xaxis=dict(gridcolor='rgba(255,255,255,0.2)', zerolinecolor='rgba(255,255,255,0.2)'),
+                    yaxis=dict(gridcolor='rgba(255,255,255,0.2)', zerolinecolor='rgba(255,255,255,0.2)'),)
     
     # Add a trace for anomalies with larger markers
     anomalies_df = transfers_df[transfers_df['anomaly'] == -1]
     fig.add_trace(px.scatter(anomalies_df, x='time', y='value').data[0])
-    
     fig.data[-1].update(marker=dict(size=12, color='red', symbol='x'), mode='markers', name='Anomalies')
     
     return fig
@@ -400,13 +444,21 @@ def update_bubble_graph(view, n_clicks, num_transactions):
         ))
 
         fig.update_layout(
-            title='Crypto Transactions Bubble Map (2D)',
-            showlegend=True,
-            xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-            margin=dict(l=0, r=0, b=0, t=40),
-            hovermode='closest'
-        )
+        title='Crypto Transactions Bubble Map (2D)',
+        showlegend=True,
+        plot_bgcolor='#B8C9BC',  # Light gray background
+        paper_bgcolor='rgba(0,0,0,0)',   # Transparent paper background
+        font=dict(color='#7f7f7f'),      # Gray font color
+        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        margin=dict(l=0, r=0, b=0, t=40),
+        hovermode='closest')
+
+        # Update node colors
+        node_color = ['rgba(255,0,0,0.7)' if node in anomalous_addresses else 'rgba(0,0,0,0.5)' for node in G.nodes]
+
+        # Update edge color
+        fig.data[1].line.color = 'rgba(0,0,255,0.3)'  # Transparent blue for edges
 
     elif view == '3D':
         pos = pos_3d
@@ -467,6 +519,32 @@ def update_bubble_graph(view, n_clicks, num_transactions):
                 )
             )
         )
+
+        fig.update_layout(
+        title='Crypto Transactions Bubble Map (3D)',
+        showlegend=False,
+        autosize=True,
+        margin=dict(l=0, r=0, b=0, t=0),
+        scene=dict(
+            xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+            zaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+            aspectmode='data',
+            bgcolor='#B8C9BC',  # Light gray background
+            camera=dict(
+                eye=dict(x=0.50, y=0.30, z=0.30),
+                center=dict(x=0, y=0, z=0),
+                up=dict(x=0, y=0, z=-1)
+            )
+        ),
+        font=dict(color='#7f7f7f'),      # Gray font color
+    )
+
+    # Update node colors
+    node_color = ['rgba(255,0,0,0.7)' if node in anomalous_addresses else 'rgba(0,0,0,0.5)' for node in G.nodes]
+
+    # Update edge color
+    fig.data[1].line.color = 'rgba(0,0,255,0.3)'  # Transparent blue for edges
 
     return fig
 
