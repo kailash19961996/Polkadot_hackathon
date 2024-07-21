@@ -26,6 +26,13 @@ This application is designed to analyze transactions on the blockchain network, 
 5. **Visualization**: All outliers are displayed on 2D and 3D graphs for pattern analysis.
 6. **Detailed Inspection**: Users can hover over graph elements to view more transaction details.
 
+![1](https://github.com/user-attachments/assets/c207fbe7-5bae-4b86-a79b-ce135d6610c3)
+![2](https://github.com/user-attachments/assets/1040cc05-ba89-4ada-8bef-d5275a1c65c2)
+![3](https://github.com/user-attachments/assets/774c39cf-7e79-45e2-ba56-c654c8f622a5)
+![4](https://github.com/user-attachments/assets/d212c420-7dd4-45e5-9dd0-07672424507d)
+
+
+
 ## Future Enhancements
 
 - Implement more complex rules for identifying suspicious transactions.
