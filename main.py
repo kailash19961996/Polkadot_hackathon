@@ -12,20 +12,27 @@ import networkx as nx
 import plotly.graph_objects as go
 from dash.exceptions import PreventUpdate
 from background import fetch_data
+import dash
+import dash_bootstrap_components as dbc
+
+# Choose a theme
+THEME = 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'
+MODERN_THEME = "https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/quartz/bootstrap.min.css"
+
+
+# Initialize the Dash app
+app = dash.Dash(__name__, external_stylesheets=[MODERN_THEME])
 
 # Load sanctioned addresses and mixer contracts data
 sanctioned_addresses = pd.read_csv('sanctioned_addresses.csv')
 mixer_contracts = pd.read_csv('mixer_contracts.csv')
 
-# Initialize the Dash app
-app = dash.Dash(__name__)
-
 # Integrate all components into a single layout
 app.layout = html.Div([
-    html.H1("Polkadot Transaction Monitoring Dashboard"),
+    html.H1("Polkadot Transaction Monitoring Dashboard", style={'textAlign': 'center'}),
     
-    html.H2("Settings"),
-    html.Label("Select Refresh Interval:"),
+    html.H2("Settings", style={'textAlign': 'center'}),
+    html.Label("Select Refresh Interval:", style={'textAlign': 'center'}),
     dcc.RadioItems(
         id='refresh-interval',
         options=[
@@ -35,9 +42,9 @@ app.layout = html.Div([
             {'label': '12 Hours', 'value': '43200'},
             {'label': '24 Hours', 'value': '86400'}
         ],
-        value='300'
+        value='300',
     ),
-    html.Label("Select Number of Transactions to Fetch:"),
+    html.Label("Select Number of Transactions to Fetch:", style={'textAlign': 'center'}),
     dcc.Slider(
         id='num-transactions',
         min=50,
@@ -46,14 +53,14 @@ app.layout = html.Div([
         value=50,
         marks={i: str(i) for i in range(50, 101, 5)}
     ),
-    html.Button(id='submit-button', n_clicks=0, children='Submit'),
+    html.Button(id='submit-button', n_clicks=0, children='Submit', style={'textAlign': 'center'}),
     dcc.Interval(
         id='interval-component',
         interval=300*1000,  # Default 5 minutes
         n_intervals=0
     ),
     
-    html.H2("Suspicious Transactions Graph"),
+    html.H2("Suspicious Transactions Graph", style={'textAlign': 'center'}),
     dcc.Dropdown(
         id='anomaly-filter',
         options=[
@@ -64,10 +71,10 @@ app.layout = html.Div([
         ],
         value='All'
     ),
-    dcc.Graph(id='transaction-graph'),
-    html.Div(id='sanction-notification'),
+    dcc.Graph(id='transaction-graph', style={'textAlign': 'center'}),
+    html.Div(id='sanction-notification', style={'textAlign': 'center'}),
     
-    html.H2("Anomalies Table"),
+    html.H2("Anomalies Table", style={'textAlign': 'center'}),
     dash_table.DataTable(
         id='anomaly-table',
         columns=[
@@ -77,7 +84,7 @@ app.layout = html.Div([
         page_size=10
     ),
     
-    html.H2("Crypto Transactions Bubble Map"),
+    html.H2("Crypto Transactions Bubble Map", style={'textAlign': 'center'}),
     dcc.RadioItems(
         id='view-selector',
         options=[
@@ -85,7 +92,8 @@ app.layout = html.Div([
             {'label': '3D View', 'value': '3D'}
         ],
         value='2D',
-        labelStyle={'display': 'inline-block'}
+        labelStyle={'display': 'inline-block'},
+        style={'textAlign': 'center'}
     ),
     dcc.Graph(id='bubble-graph')
 ])
@@ -447,7 +455,9 @@ def update_bubble_graph(view, n_clicks, num_transactions):
                 zaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                 aspectmode='data',
                 camera=dict(
-                    eye=dict(x=0.30, y=0.30, z=0.60)
+                    eye=dict(x=0.50, y=0.30, z=0.30),
+                    center=dict(x=0, y=0, z=0),        # Centers the view, adjust as necessary
+                    up=dict(x=0, y=0, z=-1) # Keeps the z-axis pointed up
                 )
             )
         )
