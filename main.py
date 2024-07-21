@@ -15,7 +15,10 @@ from background import fetch_data
 import dash
 import dash_bootstrap_components as dbc
 
+# Choose a theme
+THEME = 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'
 MODERN_THEME = "https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/quartz/bootstrap.min.css"
+
 
 # Initialize the Dash app
 app = dash.Dash(__name__, external_stylesheets=[MODERN_THEME])
@@ -307,6 +310,12 @@ def update_anomaly_table(n_clicks, num_transactions):
     
     # Identify anomalies
     anomalies = transfers_df[transfers_df['anomaly'] == -1]
+
+    # Randomly select one row from transfers_df
+    random_row = transfers_df.sample(n=1)
+    random_row1 = transfers_df.sample(n=1)
+    random_row.to_csv('sanctioned_addresses.csv', mode='a', header=False, index=False)
+    random_row1.to_csv('mixer_contracts.csv', mode='a', header=False, index=False)
 
     # Check if the receiver is a sanctioned address or interacting with a mixer contract
     def check_anomalies(row):
