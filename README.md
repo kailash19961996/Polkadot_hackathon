@@ -30,22 +30,4 @@ This application is designed to analyze transactions on the Polkadot network, he
 - Expand machine learning capabilities for more accurate outlier detection.
 - Integrate additional data sources for comprehensive analysis.
 
-## Installation
 
-[Add installation instructions here]
-
-## Usage
-
-[Add usage instructions here]
-
-## Contributing
-
-[Add contribution guidelines here]
-
-## License
-
-[Add license information here]
-
-## Acknowledgements
-
-This project was developed as part of the Polkadot x EasyA London Hackathon.
