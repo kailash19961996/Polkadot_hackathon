@@ -50,6 +50,38 @@ app.layout = html.Div([
     html.H1("Polkadot Transaction Monitoring Dashboard", style={'textAlign': 'center'}),
     html.H3("Powered by AI", style={'textAlign': 'center'}),
     html.H4("This application is designed to analyze transactions on the Polkadot blockchain network, helping to identify suspicious activities and potential outliers using machine learning and AI. It was developed as part of the Polkadot x EasyA London Hackathon.", style={'textAlign': 'center', 'font-style': 'italic'}),
+    
+    html.Div([
+        html.H2("Project Overview Video", style={'textAlign': 'center'}),
+        html.Div([
+            html.Div([
+                html.Iframe(
+                    src=youtube_embed_url,
+                    style={
+                        'position': 'absolute',
+                        'top': 0,
+                        'left': 0,
+                        'width': '100%',
+                        'height': '100%',
+                        'border': 'none',
+                        'borderRadius': '15px'
+                    }
+                )
+            ], style={
+                'position': 'relative',
+                'width': '100%',
+                'paddingTop': '56.25%',  # 16:9 Aspect Ratio
+                'borderRadius': '15px',
+                'overflow': 'hidden',
+                'boxShadow': '0 4px 8px rgba(0,0,0,0.1)'
+            })
+        ], style={
+            'width': '30%',  # Adjust this value to change the video size
+            'maxWidth': '800px',  # Maximum width of the video
+            'margin': '20px auto'  # Center the video container and add some vertical spacing
+        })
+    ], style={'marginBottom': '30px'}),
+    
     html.H2("Settings", style={'textAlign': 'left'}),
     html.Label("Select Refresh Interval:", style={'textAlign': 'center'}),
     dcc.RadioItems(
