@@ -44,6 +44,8 @@ footer = html.Div([
 # Load sanctioned addresses and mixer contracts data
 sanctioned_addresses = pd.read_csv('sanctioned_addresses.csv')
 mixer_contracts = pd.read_csv('mixer_contracts.csv')
+video_id = "VKXTvplJFPA?si=8-CTwA1Hcq_7bvDY"
+youtube_embed_url = f"https://www.youtube.com/embed/{video_id}?autoplay=1&mute=0"
 
 # Integrate all components into a single layout
 app.layout = html.Div([
