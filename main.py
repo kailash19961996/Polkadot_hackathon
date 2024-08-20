@@ -54,7 +54,7 @@ app.layout = html.Div([
     html.H4("This application is designed to analyze transactions on the Polkadot blockchain network, helping to identify suspicious activities and potential outliers using machine learning and AI. It was developed as part of the Polkadot x EasyA London Hackathon.", style={'textAlign': 'center', 'font-style': 'italic'}),
     
     html.Div([
-        html.H2("Project Overview Video", style={'textAlign': 'center'}),
+        html.H2("90-Second Intro", style={'textAlign': 'center'}),
         html.Div([
             html.Div([
                 html.Iframe(
