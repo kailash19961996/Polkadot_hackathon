@@ -1,9 +1,5 @@
 # Polkadot Transaction Analysis Tool
 
-### AI-Powered
-
-## Overview
-
 Introducing CryptoSight AI – a cutting-edge tool designed to bring clarity and security to Polkadot cryptocurrency transactions. What sets CryptoSight AI apart is its powerful 3D visualization feature. You can explore transactions in a dynamic, three-dimensional space, making it easier than ever to spot irregularities.
 
 With our advanced machine learning algorithms, CryptoSight AI identifies outliers within transaction data, flagging anything suspicious. These outliers are then cross-referenced against a list of sanctioned accounts, ensuring that any potential risks are caught early.
