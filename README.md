@@ -4,7 +4,13 @@
 
 ## Overview
 
-This application is designed to analyze transactions on the blockchain network, helping to identify suspicious activities and potential outliers using machine learning and AI. It was developed as part of the Polkadot x EasyA London Hackathon.
+Introducing CryptoSight AI – a cutting-edge tool designed to bring clarity and security to Polkadot cryptocurrency transactions. What sets CryptoSight AI apart is its powerful 3D visualization feature. You can explore transactions in a dynamic, three-dimensional space, making it easier than ever to spot irregularities.
+
+With our advanced machine learning algorithms, CryptoSight AI identifies outliers within transaction data, flagging anything suspicious. These outliers are then cross-referenced against a list of sanctioned accounts, ensuring that any potential risks are caught early.
+
+Plus, with real-time data analysis, you have control over how many transactions to review, from the most recent one hundred to a thousand. At the top of the screen, simply select the frequency and the number of transactions you want to analyze.
+
+CryptoSight AI isn’t just a tool—it’s your new vantage point for safeguarding cryptocurrency transactions. See the unseen and stay ahead with CryptoSight AI.
 
 [Click here to try the app](https://polkadot-app2-715cfeb3743d.herokuapp.com/)
 
