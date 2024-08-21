@@ -14,6 +14,12 @@ CryptoSight AI isn’t just a tool—it’s your new vantage point for safeguard
 
 [Click here to try the app](https://polkadot-app2-715cfeb3743d.herokuapp.com/)
 
+Click below to see the 60-second video tutorial
+
+[![Watch the video](https://img.youtube.com/vi/VKXTvplJFPA/0.jpg)](https://youtu.be/VKXTvplJFPA)
+
+[Visit my website for more](https://kailash.london/)
+
 ## Features
 
 - **Customizable Data Processing**: Users can choose the frequency and volume of data to process.
@@ -31,13 +37,6 @@ CryptoSight AI isn’t just a tool—it’s your new vantage point for safeguard
 4. **Blacklist Verification**: Outliers are checked against a list of blacklisted accounts.
 5. **Visualization**: All outliers are displayed on 2D and 3D graphs for pattern analysis.
 6. **Detailed Inspection**: Users can hover over graph elements to view more transaction details.
-
-![1](https://github.com/user-attachments/assets/c207fbe7-5bae-4b86-a79b-ce135d6610c3)
-![2](https://github.com/user-attachments/assets/1040cc05-ba89-4ada-8bef-d5275a1c65c2)
-![3](https://github.com/user-attachments/assets/774c39cf-7e79-45e2-ba56-c654c8f622a5)
-![4](https://github.com/user-attachments/assets/d212c420-7dd4-45e5-9dd0-07672424507d)
-
-
 
 ## Future Enhancements
 
