@@ -31,9 +31,9 @@ website =  "https://raw.githubusercontent.com/kailash19961996/icons-and-images/m
 
 footer = html.Div([
     html.Hr(),  # Add a horizontal line above the footer
-    html.P(['Built by ', html.A('Kai', href='https://kailashsubramaniyam.com/', target='_blank'),'. Like this? ', html.A('Hire me!', href='https://kailashsubramaniyam.com/contact', target='_blank')], style={'text-align': 'center', 'margin': '20px 0'}),
+    html.P(['Built by ', html.A('Kai', href='https://kailash.london/', target='_blank'),'. Like this? ', html.A('Hire me!', href='https://kailash.london/', target='_blank')], style={'text-align': 'center', 'margin': '20px 0'}),
     html.Div([
-        html.A(html.Img(src=website, style={'width': '42px', 'height': '42px', 'margin-right': '25px'}), href='https://kailashsubramaniyam.com/', target='_blank'),
+        html.A(html.Img(src=website, style={'width': '42px', 'height': '42px', 'margin-right': '25px'}), href='https://kailash.london/', target='_blank'),
         html.A(html.Img(src=youtube, style={'width': '28px', 'height': '28px', 'margin-right': '25px'}), href='https://www.youtube.com/@kailashbalasubramaniyam2449/videos', target='_blank'),
         html.A(html.Img(src=linkedin, style={'width': '35px', 'height': '35px', 'margin-right': '25px'}), href='https://www.linkedin.com/in/kailash-kumar-balasubramaniyam-62b075184', target='_blank'),
         html.A(html.Img(src=github, style={'width': '30px', 'height': '30px', 'margin-right': '25px'}), href='https://github.com/kailash19961996', target='_blank'),
