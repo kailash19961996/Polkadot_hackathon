@@ -8,7 +8,7 @@ Plus, with real-time data analysis, you have control over how many transactions 
 
 CryptoSight AI isn’t just a tool—it’s your new vantage point for safeguarding cryptocurrency transactions. See the unseen and stay ahead with CryptoSight AI.
 
-[Click here to try the app](https://polkadot-app2-715cfeb3743d.herokuapp.com/)
+[Click here to try the app](https://dashboard.heroku.com/apps/glacial-sierra-19503/deploy/github)
 
 Click below to see the 60-second video tutorial
 
